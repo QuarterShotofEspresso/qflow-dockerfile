@@ -10,11 +10,21 @@ WORKDIR /home
 
 ENV DEBIAN_FRONTEND=noninteractive
 
+# Install general tools
 RUN apt-get update && apt-get install -y \
     wget \
     git \
     make \
     vim \
+    fish \
+
+
+# Set fish as default shell
+RUN chsh -s /usr/bin/fish
+# Set environment variable for shell?
+ENV SHELL /usr/bin/fish
+    
+RUN apt-get install -y \
     python3 \
     tcl \
     tk \
