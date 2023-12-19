@@ -1,0 +1,15 @@
+[submodule "graywolf"]
+	path = graywolf
+	url = https://github.com/rubund/graywolf.git
+[submodule "yosys"]
+	path = yosys
+	url = https://github.com/YosysHQ/yosys.git
+[submodule "qrouter"]
+	path = qrouter
+	url = https://github.com/RTimothyEdwards/qrouter
+[submodule "magic"]
+	path = magic
+	url = https://github.com/RTimothyEdwards/magic
+[submodule "qflow"]
+	path = qflow
+	url = https://github.com/RTimothyEdwards/qflow
