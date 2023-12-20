@@ -10,8 +10,8 @@ Pull the whole directory
 
 > Docker provides a setup environment 
 
-## Installation Problems 
+## Installation Problems on --platform=linux/arm64
 
-`gsllib` (used by graywolf) installs .so and .a files under `/usr/lib/aarch64-linux-gnu/`.
+Common `gsllib` (used by graywolf) installs .so and .a files under `/usr/lib/aarch64-linux-gnu/`.
 
 

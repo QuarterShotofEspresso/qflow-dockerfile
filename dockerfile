@@ -3,7 +3,8 @@
 
 # Dockerfile for Qflow Digital Synthesis Design Suite
 
-FROM --platform=linux/arm64 ubuntu:18.04
+# FROM --platform=linux/arm64 ubuntu:18.04
+FROM ubuntu:18.04
 
 
 WORKDIR /home
@@ -24,6 +25,7 @@ RUN chsh -s /usr/bin/fish
 # Set environment variable for shell?
 ENV SHELL /usr/bin/fish
     
+# Common dependencies
 RUN apt-get install -y \
     python3 \
     tcl \
@@ -31,19 +33,21 @@ RUN apt-get install -y \
     tcsh \
     build-essential \
     cmake \
-    libgsl-dev \
 
 # Install Yosys from source
 # These are Yosys dependencies if chosen to build from source
-# RUN apt-get install build-essential clang bison flex \
-# 	libreadline-dev gawk tcl-dev libffi-dev git \
-# 	graphviz xdot pkg-config python3 libboost-system-dev \
-# 	libboost-python-dev libboost-filesystem-dev zlib1g-dev
+RUN apt-get install build-essential clang bison flex \
+	libreadline-dev gawk tcl-dev libffi-dev git \
+	graphviz xdot pkg-config python3 libboost-system-dev \
+	libboost-python-dev libboost-filesystem-dev zlib1g-dev
 
 # Install Yosys from binary
 # NOTE: This link needs to be adjusted to your dockerfile's architecture
-RUN wget https://github.com/YosysHQ/oss-cad-suite-build/releases/download/2023-12-19/oss-cad-suite-linux-arm64-20231219.tgz
-RUN tar -xzvf oss-cad-suite-linux-arm64-20231219.tgz
+# RUN wget https://github.com/YosysHQ/oss-cad-suite-build/releases/download/2023-12-19/oss-cad-suite-linux-arm64-20231219.tgz
+# RUN tar -xzvf oss-cad-suite-linux-arm64-20231219.tgz
 
-# Download graywolf
+# Install Yosys from source 
+RUN apt-get install -y \
+    libgsl-dev \
+    libx11-dev \
 
