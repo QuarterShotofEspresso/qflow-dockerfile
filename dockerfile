@@ -6,7 +6,6 @@
 # FROM --platform=linux/arm64 ubuntu:18.04
 FROM ubuntu:18.04
 
-
 WORKDIR /home
 
 ENV DEBIAN_FRONTEND=noninteractive
@@ -17,7 +16,7 @@ RUN apt-get update && apt-get install -y \
     git \
     make \
     vim \
-    fish \
+    fish
 
 
 # Set fish as default shell
@@ -32,22 +31,23 @@ RUN apt-get install -y \
     tk \
     tcsh \
     build-essential \
-    cmake \
+    cmake
 
 # Install Yosys from source
-# These are Yosys dependencies if chosen to build from source
-RUN apt-get install build-essential clang bison flex \
+# Yosys dependencies for building from source
+RUN apt-get install -y clang bison flex \
 	libreadline-dev gawk tcl-dev libffi-dev git \
-	graphviz xdot pkg-config python3 libboost-system-dev \
+	graphviz xdot pkg-config libboost-system-dev \
 	libboost-python-dev libboost-filesystem-dev zlib1g-dev
 
 # Install Yosys from binary
 # NOTE: This link needs to be adjusted to your dockerfile's architecture
 # RUN wget https://github.com/YosysHQ/oss-cad-suite-build/releases/download/2023-12-19/oss-cad-suite-linux-arm64-20231219.tgz
 # RUN tar -xzvf oss-cad-suite-linux-arm64-20231219.tgz
+RUN apt-get install -y yosys
 
 # Install Yosys from source 
 RUN apt-get install -y \
     libgsl-dev \
-    libx11-dev \
+    libx11-dev
 
